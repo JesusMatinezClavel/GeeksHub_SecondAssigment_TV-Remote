@@ -12,8 +12,6 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
-    background-color: blue;
 }
 
 /* //////////////////////////////////////////////////////////////////// TELEVISION */
@@ -70,7 +68,7 @@ body {
 
     background-color: rgb(151, 151, 151);
 
-    display: inherit;
+    display: grid;
     justify-content: center;
     align-items: center;
 
@@ -78,7 +76,7 @@ body {
 
 }
 
-.dial:hover {
+.dials:hover {
     box-shadow: -.1px 1px 8px 2px rgb(139, 139, 139);
 
 }
@@ -86,7 +84,7 @@ body {
 .dial {
     height: 3em;
     width: 3em;
-
+    
     border-radius: 50px;
 
     box-shadow:inset 0px 0px .2em 4px rgb(139, 139, 139);
@@ -111,7 +109,7 @@ body {
 
 .linea {
     height: 6em;
-    width: 20em;
+    width: 90%;
 
     margin: .1em;
 
@@ -143,7 +141,7 @@ body {
     justify-content: space-around;
     align-items: center;
 
-    padding: 1em;
+    padding: .4em;
 }
 
 .remote:hover {
