@@ -15,11 +15,11 @@ body {
 }
 
 /* //////////////////////////////////////////////////////////////////// TELEVISION */
-                                                                                            
+
 
 .TV {
     height: 90vh;
-    width: 35em;
+    width: 55em;
 
     background-color: #f0f0f0;
     border-radius: 6px;
@@ -34,6 +34,7 @@ body {
     padding: 1em;
 
 }
+
 .TV:hover {
     background-color: #f0f0f0;
     border-radius: 8px;
@@ -43,93 +44,103 @@ body {
 }
 
 .tvBorder {
-    height: 80%;
+    height: 90%;
     width: 100%;
 
     box-shadow: inset 0px -2px 8px 1px rgba(0, 0, 0, 0.5);
     border-radius: 6px;
-}
 
-.tvBot {
-    height: 20%;
-    width: 95%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dials {
-    height: 4em;
-    width: 4em;
-
-    border-radius: 50px;
-
-    background-color: rgb(151, 151, 151);
-
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-    box-shadow: -.1px 1px 5px 2px rgb(139, 139, 139);
-
-}
-
-.dials:hover {
-    box-shadow: -.1px 1px 8px 2px rgb(139, 139, 139);
-
-}
-
-.dial {
-    height: 3em;
-    width: 3em;
-    
-    border-radius: 50px;
-
-    box-shadow:inset 0px 0px .2em 4px rgb(139, 139, 139);
-
-}
-.dial:hover {
-    box-shadow:inset 0px 0px .4em 8px rgb(122, 122, 122);
-}
-
-.rendijas {
-    height: 4em;
-    width: 20em;
+    background-color: rgb(191, 255, 255);
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tvBot {
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
-    position: relative;
-    z-index:1;
+    padding: .2em;
 }
 
-.linea {
-    height: 6em;
-    width: 90%;
-
-    margin: .1em;
-
-    border-radius: 10px;
-
-    background-color: #f0f0f0;
-    box-shadow:inset 0px 0px 3px 1px rgb(122, 122, 122);
-
-
-
-    position: relative;
-    z-index: 2;
+.barTop,
+.barBot {
+    height: 4em;
+    width: 2em;
+    transform: translatey(.45em);
 
 }
+
+.barTop {
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+
+    box-shadow: inset 0px 1px 1px .5px rgba(109, 109, 109, 0.5);
+
+}
+
+.barBot {
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    box-shadow: inset 0px -1px 1px .5px rgba(109, 109, 109, 0.5);
+
+}
+
+.barMid {
+    height: 4em;
+    width: 100%;
+
+    transform: translatey(.45em);
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.barSideL,
+.barSideR {
+    height: 100%;
+    width: 50%;
+
+
+}
+
+.barSideL {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    box-shadow: inset 1px 0px 1px .5px rgba(109, 109, 109, 0.5);
+
+}
+
+.barSideR {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+
+    box-shadow: inset -1px 0px 1px .5px rgba(109, 109, 109, 0.5);
+}
+
+.barSideSeparator {
+    width: 2em;
+}
+
+
 /* //////////////////////////////////////////////////////////////////// REMOTE */
 
 
 .remote {
-    height: 60vh;
-    width: 10em;
+    height: 30em;
+    width: 12.5em;
     border-radius: 10px;
 
     background-color: rgb(112, 112, 112);
@@ -157,7 +168,7 @@ body {
 .topButtons {
     height: 15%;
     width: 90%;
-    
+
     background-color: rgb(46, 32, 32);
 
     display: flex;
@@ -166,7 +177,9 @@ body {
     align-items: center;
 }
 
-.tvButton, .menuButton, .sourceButton {
+.tvButton,
+.menuButton,
+.sourceButton {
     height: 1em;
     width: 2em;
 
@@ -190,33 +203,35 @@ body {
     align-items: center;
 }
 
-.crossVol, .crossChan{
+.crossVol,
+.crossChan {
     height: 100%;
     width: 50%;
 
     background-color: aliceblue;
-    border:1px solid black;
+    border: 1px solid black;
 
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
     position: relative;
     padding: .5em;
 
 }
 
-.crossHor, .crossVer {
+.crossHor,
+.crossVer {
     border-radius: 10px;
     position: absolute;
     background-color: rgb(117, 117, 117);
     box-shadow: -.4px 1px 3px .4px rgba(0, 0, 0, 0.5);
 }
 
-.crossHor{
+.crossHor {
     width: 90%;
-    height: 10px; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    height: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .crossVer {
