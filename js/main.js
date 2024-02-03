@@ -18,22 +18,21 @@ function update() {
 function buttonClick(e) {
     screen.classList.remove(screen.classList[screen.classList.length - 1])
     screen.classList.add("ch" + e.target.id.slice(-1))
+
 }
 
 IO.addEventListener("click", (e) => {
     screen.classList.toggle("off");
     update()
     if (on == true) {
-        console.log(on)
-        buttonsList.forEach(
+        buttonsList.map(
             (item, index) => {
                 item.addEventListener("click", buttonClick)
             }
         )
     } else {
-        console.log(on)
         screen.className = originalState
-        buttonsList.forEach(
+        buttonsList.map(
             (item, index) => {
                 item.removeEventListener("click", buttonClick)
             }
