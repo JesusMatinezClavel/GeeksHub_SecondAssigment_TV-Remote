@@ -5,6 +5,8 @@ let buttonsList = Array.from(chButtons)
 
 let IO = document.getElementById("ioButton")
 
+let originalState = screen.classList.value
+
 let on = false
 
 function update() {
@@ -13,21 +15,28 @@ function update() {
         : on = false
 }
 
+function buttonClick(e) {
+    screen.classList.remove(screen.classList[screen.classList.length - 1])
+    screen.classList.add("ch" + e.target.id.slice(-1))
+}
+
 IO.addEventListener("click", (e) => {
     screen.classList.toggle("off");
     update()
     if (on == true) {
+        console.log(on)
         buttonsList.forEach(
             (item, index) => {
-                item.addEventListener("click", (e) => {
-                    screen.classList.remove(screen.classList[screen.classList.length - 1])
-                    screen.classList.add("ch" + e.target.id.slice(-1))
-                })
+                item.addEventListener("click", buttonClick)
             }
         )
     } else {
-            screen.classList.toggle("off");
-            update()
+        console.log(on)
+        screen.className = originalState
+        buttonsList.forEach(
+            (item, index) => {
+                item.removeEventListener("click", buttonClick)
+            }
+        )
     }
 });
-
