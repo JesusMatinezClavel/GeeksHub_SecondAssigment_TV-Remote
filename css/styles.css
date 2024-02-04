@@ -32,7 +32,7 @@ body {
     justify-content: space-around;
     align-items: center;
 
-    padding: 1em;
+    padding: .4em;
 
 }
 
@@ -49,6 +49,10 @@ body {
     align-items: center;
 }
 
+#tvScreenBackG{
+
+}
+
 #tvBot {
     height: 10%;
     width: 100%;
@@ -61,16 +65,25 @@ body {
 #ioButton {
     height: 3em;
     width: 3em;
+    margin-top: .2em;
 
     background-color: rgb(134, 134, 134);
 
     border-radius: 50%;
+
+    border: 5px solid rgba(255, 255, 255, 0.1); /* Borde blanco con opacidad para agregar relieve */
+
+
+    transform: translatey(-.01em);
 }
 
 #ioButton:hover {
 
     background-color: rgb(184, 197, 185);
     cursor: pointer;
+
+    transform: translatey(.05em);
+
 
 }
 
@@ -125,6 +138,13 @@ body {
     border-radius: 10px;
 
     background-color: blueviolet;
+}
+
+#tvButton:hover,
+#menuButton:hover,
+#sourceButton:hover {
+
+    background-color: rgb(178, 106, 245);
 }
 
 /* //////////////////////////////////////////////////////////////////// CROSS */
