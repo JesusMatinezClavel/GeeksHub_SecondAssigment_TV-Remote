@@ -21,8 +21,9 @@ body {
     height: 90vh;
     width: 55em;
 
-    background-color: #f0f0f0;
+    background-color: #cecece;
     border-radius: 6px;
+    border: .05px solid rgb(165, 165, 165);
     box-shadow: -3px 5px 4px 1px rgba(136, 136, 136, 0.5);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 
