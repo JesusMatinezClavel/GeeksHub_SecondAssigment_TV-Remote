@@ -16,9 +16,9 @@ let on
 /////////////////////////////////////////////////////////////////////// FUNCIONES
 
 // FUNCION PARA ENCENDER Y APAGAR LA TV
-function screenOnOff () {
+function screenOnOff() {
     screen.classList.toggle("off");
-} 
+}
 
 // FUNCION PARA CAMBIAR EL ESTADO DE ON
 function update() {
@@ -31,7 +31,6 @@ function update() {
 function buttonClick(e) {
     screen.classList.remove(screen.classList[screen.classList.length - 1])
     screen.classList.add("ch" + e.target.id.slice(-1))
-
 }
 
 // FUNCION PARA AÑADIR EL BOTON A LOS CANALES
