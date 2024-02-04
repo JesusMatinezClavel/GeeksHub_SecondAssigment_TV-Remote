@@ -3,6 +3,9 @@
 
 const screen = document.getElementById("tvScreen")
 const chButtons = document.getElementsByClassName("chButton")
+const channels = document.getElementsByClassName("channel")
+
+let channelList = Array.from(channels)
 
 let buttonsList = Array.from(chButtons)
 
@@ -12,7 +15,7 @@ let originalState = screen.classList.value
 
 let on
 
-
+console.log(channelList)
 /////////////////////////////////////////////////////////////////////// FUNCIONES
 
 // FUNCION PARA ENCENDER Y APAGAR LA TV
