@@ -44,7 +44,7 @@ body {
     border-radius: 6px;
 
     position: relative;
-    flex: 4;
+    flex: 5;
     overflow: hidden;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .screenOpacity {
-    transition:1s;
+    transition: 1s;
     opacity: 0;
 }
 
@@ -96,7 +96,7 @@ body {
     right: 0;
     bottom: 0;
 
-    
+
 }
 
 #channel2 {
@@ -115,10 +115,8 @@ body {
     background-color: bisque;
 }
 
-#channel6 {}
-
 #tvScreenBackG {
-    background-color: rgb(203, 255, 154);
+    background-color: rgb(233, 231, 103);
     position: absolute;
     top: 0;
     left: 0;
@@ -132,42 +130,54 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    z-index: 1;
-    opacity: 1;
-
 }
 
+.menuOpacity {
+    transition: 1s;
+    opacity: 0;
+}
 
+#infoBackGFather {
+    width: 100%;
+    height: 100%;
+
+    box-shadow: inset 0px -2px 8px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 #infoBackG {
     height: 20%;
     width: 100%;
-
-    background-color: aqua;
 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: top;
+
 }
 
 #date,
-#time {
+#time,
+#channelName {
     height: 2em;
     width: 8em;
-
-    background-color: rgb(38, 128, 34);
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.infoOpacity {
+    opacity: 0;
+    transition: 1s;
+}
+
 #channelBackG {
     height: 80%;
     width: 100%;
-
-    background-color: rgb(59, 139, 139);
 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -193,8 +203,6 @@ body {
     height: 10%;
     width: 100%;
 
-    background-color: rgb(255, 36, 36);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,8 +219,11 @@ body {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    
-    z-index: 3;
+}
+
+.volumeOpacity {
+    opacity: 0;
+    transition: 1s;
 }
 
 .volume {
@@ -308,21 +319,48 @@ body {
     align-items: center;
 }
 
-#tvButton,
+#sideTopRemote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 #menuButton,
-#sourceButton {
+#infoButton {
     height: 1em;
     width: 2em;
 
     border-radius: 10px;
 
     background-color: blueviolet;
+
+    margin-top: .4em;
+    margin-bottom: .4em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#tvButton:hover,
-#menuButton:hover,
-#sourceButton:hover {
+#ioRemoteButton {
+    height: 2.5em;
+    width: 2.5em;
 
+    border-radius: 50%;
+
+    background-color: blueviolet;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#infoButton:hover,
+#menuButton:hover,
+#ioRemoteButton:hover {
+    cursor: pointer;
     background-color: rgb(178, 106, 245);
 }
 
@@ -389,69 +427,30 @@ body {
 /* ////////////////////////////////////////////////////////////////////////////// CLASES/IDs DE JAVASCRIPT */
 
 .off {
-    z-index: 4;
     opacity: 1;
-    transition:1s;
+    transition: 1s;
+    z-index: 5;
+}
+
+.index1 {
+    opacity: 1;
+    transition: 1s;
+    z-index: 1;
 }
 
 .index2 {
+    opacity: 1;
+    transition: 1s;
     z-index: 2;
 }
 
-.ch1 {
-    background-color: rgb(25, 0, 255);
+.index3 {
+    opacity: 1;
+    transition: 1s;
+    z-index: 3;
 }
-
-.ch2 {
-    background-color: rgb(15, 180, 0);
-}
-
-.ch3 {
-    background-color: rgb(255, 0, 55);
-
-}
-
-.ch4 {
-    background-color: rgb(136, 255, 0);
-
-}
-
-.ch5 {
-    background-color: rgb(0, 255, 221);
-
-}
-
-.ch6 {
-    background-color: rgb(144, 160, 255);
-
-}
-
-.ch7 {
-    background-color: rgb(255, 172, 172);
-
-}
-
-.ch8 {
-    background-color: rgb(241, 255, 180);
-
-}
-
-.ch9 {
-    background-color: rgb(255, 222, 160);
-
-}
-
-.cha {
-    background-color: rgb(255, 169, 229);
-
-}
-
-.chb {
-    background-color: rgb(255, 0, 234);
-
-}
-
-.chc {
-    background-color: rgb(112, 48, 64);
-
+.index4 {
+    opacity: 1;
+    transition: 1s;
+    z-index: 4;
 }
