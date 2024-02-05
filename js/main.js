@@ -97,7 +97,7 @@ function buttonClickTop(e) {
 // FUNCION PARA AÑADIR Y QUITAR A LOS CANALES DE LA CLASE INDEX2 (z-index: 2;)
 function buttonClick(e) {
     const buttonIndex = buttonsList.indexOf(e.target)
-    screenBackG.classList.remove("index1") && ("index3")
+    screenBackG.classList.remove(("index1") && ("index3"))
     if (buttonIndexLast !== -1) {
         channelList[buttonIndexLast].classList.remove("index2")
     }
