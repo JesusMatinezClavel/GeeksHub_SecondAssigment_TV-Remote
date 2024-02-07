@@ -21,7 +21,7 @@ Para ello he configurado la pantalla para que tenga varios niveles, en los cuale
 
 ![Menú](./img/image2.png)
 
-A partir de aquí configuré las teclas del mando para que, dependiendo del número que se pulse afecte al índice del Array correspondiente al Array de canales para así darles (y quitarles) la clase con el correspondiente `z-index: 2;`.
+A partir de aquí configuré las teclas del mando para que, dependiendo del número que se pulse afecte al índice del *Array* correspondiente al *Array* de canales para así darles (y quitarles) la clase con el correspondiente `z-index: 2;`.
 Los niveles `z-index: 3;` y `z-index: 4;` los he utilizado para el botón de menú y el de info respectivamente, para que podamos ir al menu desde cualquier canal y para mostrar la información (fecha, hora y canal seleccionado) siempre que pulsemos el botón.
 
 Para hacer la selección de los canales en el menú he configurado las teclas de la cruceta del mando con un *Switch* para que cada una se mueva dentro del *Array* de los canales del menú **sumando/restando 1 o 5 al Index** y con ello añadiendo y eliminando los elementos de una clase para destacarlos.
