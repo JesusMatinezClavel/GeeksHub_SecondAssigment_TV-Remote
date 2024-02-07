@@ -1,5 +1,9 @@
 /////////////////////////////////////////////////////////////////////// DECLARACIONES
 
+const ahora = new Date()
+
+const fecha = ahora.toLocaleDateString()
+const hora = ahora.toLocaleTimeString()
 
 const screen = document.getElementById("tvScreen")
 const chButtons = document.getElementsByClassName("chButton")
@@ -10,6 +14,8 @@ const volumeBar = document.getElementById("volumeBar")
 const channelName = document.getElementById("channelName")
 const addRemoveButtons = document.getElementsByClassName("addRemoveButton")
 const crossButtons = document.getElementsByClassName("crossSelector")
+const date = document.getElementById("date")
+const time = document.getElementById("time")
 
 const ioRemote = document.getElementById("ioRemoteButton")
 const menuRemote = document.getElementById("menuButton")
@@ -48,7 +54,7 @@ let on
 
 let buttonIndexLast = -1
 
-let selectedChannel
+let selectedChannel = -1
 
 let buttonIndex
 
@@ -68,12 +74,22 @@ function update() {
         : on = false
 }
 
+// hora y tal
 
+function dateTime() {
+    date.innerHTML = fecha
+    time.innerHTML = hora
+}
 
 
 function menuClick() {
     screenBackG.classList.toggle("index3")
-    channelMenuList[firstChannelSelected].classList.remove("channelMenuLookAt")
+    if (firstChannelSelected !== -1) {
+        channelMenuList[firstChannelSelected].classList.remove("channelMenuLookAt")
+    }
+    if (selectedChannel !== -1) {
+        channelList[selectedChannel].classList.remove("index2")
+    }
     firstChannelSelected = selectedChannel
 }
 
@@ -102,6 +118,8 @@ function buttonClickTop(e) {
             break;
         case 1:
             menuClick()
+            console.log(selectedChannel)
+            console.log(firstChannelSelected)
             break;
         case 2:
             infoClick()
@@ -114,7 +132,7 @@ function volumeAdd() {
     volumeBar.classList.add("index4")
     setTimeout(() => {
         volumeBar.classList.remove("index4")
-    }, 2000)
+    }, 600)
     createVolume.className = "volume"
     if (volumeBar.classList.length <= 49)
         volumeBar.appendChild(createVolume)
@@ -125,17 +143,18 @@ function volumeRemove() {
     volumeBar.classList.add("index4")
     setTimeout(() => {
         volumeBar.classList.remove("index4")
-    }, 2000)
+    }, 600)
     if (deleteVolume) {
         volumeBar.removeChild(deleteVolume);
     }
 }
 
 function channelAdd() {
-    channelList[selectedChannel].classList.remove("index2")
     if (firstChannelSelected !== -1) {
         selectedChannel = firstChannelSelected
+        firstChannelSelected = -1
     }
+    channelList[selectedChannel].classList.remove("index2")
     channelList[selectedChannel + 1].classList.add("index2")
     channelName.textContent = channelNameList[selectedChannel + 1]
     selectedChannel = selectedChannel + 1
@@ -144,6 +163,10 @@ function channelAdd() {
 
 
 function channelRemove() {
+    if (firstChannelSelected !== -1) {
+        selectedChannel = firstChannelSelected
+        firstChannelSelected = -1
+    }
     channelList[selectedChannel].classList.remove("index2")
     channelList[selectedChannel - 1].classList.add("index2")
     channelName.textContent = channelNameList[selectedChannel - 1]
@@ -161,13 +184,64 @@ function buttonClickChannelVol(e) {
         case 1: volumeRemove()
             break;
         case 2: channelAdd()
+            console.log(firstChannelSelected)
             console.log(selectedChannel)
             break;
         case 3: channelRemove()
+            console.log(firstChannelSelected)
             console.log(selectedChannel)
             break;
     }
 }
+
+
+function arrowUp() {
+    if (firstChannelSelected >= 5 && firstChannelSelected <= 9) {
+        channelMenuList[firstChannelSelected - 5].classList.add("channelMenuLookAt")
+        firstChannelSelected = firstChannelSelected - 5
+    }
+}
+
+function arrowLeft() {
+    if (firstChannelSelected === -1) {
+        firstChannelSelected = 10;
+    }
+    channelMenuList[firstChannelSelected - 1].classList.add("channelMenuLookAt");
+    firstChannelSelected = firstChannelSelected - 1;
+}
+
+function centralCross() {
+    channelMenuList[firstChannelSelected].classList.add("channelMenuSelected")
+    setTimeout(() => {
+        channelMenuList[firstChannelSelected].classList.remove("channelMenuSelected")
+    }, 100)
+    channelMenuList[firstChannelSelected].classList.add("channelMenuLookAt")
+    setTimeout(() => {
+        channelList[firstChannelSelected].classList.add("index2")
+    }, 320)
+    screenBackG.classList.remove("index1")
+    screenBackG.classList.remove("index3")
+    channelMenuList[firstChannelSelected].classList.remove("channelMenuLookAt")
+    selectedChannel = firstChannelSelected
+    console.log(firstChannelSelected)
+    console.log(selectedChannel)
+}
+
+function arrowRight() {
+    if (firstChannelSelected === 9) {
+        firstChannelSelected = 0;
+    }
+    channelMenuList[firstChannelSelected + 1].classList.add("channelMenuLookAt");
+    firstChannelSelected = firstChannelSelected + 1;
+}
+
+function arrowDown() {
+    if (firstChannelSelected >= 0 && firstChannelSelected <= 4) {
+        channelMenuList[firstChannelSelected + 5].classList.add("channelMenuLookAt");
+        firstChannelSelected = firstChannelSelected + 5;
+    }
+}
+
 
 function crossClick(e) {
     const crossIndex = crossList.indexOf(e.target)
@@ -175,51 +249,25 @@ function crossClick(e) {
         channelMenuList[firstChannelSelected].classList.remove("channelMenuLookAt")
     }
     switch (crossIndex) {
-        case 0: if (firstChannelSelected >= 5 && firstChannelSelected <= 9) {
-            channelMenuList[firstChannelSelected - 5].classList.add("channelMenuLookAt")
-            firstChannelSelected = firstChannelSelected - 5
-        }
+        case 0: arrowUp()
             break;
-        case 1:
-            if (firstChannelSelected === -1) {
-                firstChannelSelected = 10;
-            }
-            channelMenuList[firstChannelSelected - 1].classList.add("channelMenuLookAt");
-            firstChannelSelected = firstChannelSelected - 1;
+        case 1: arrowLeft()
             break;
-        case 2: 
-        
-        channelMenuList[firstChannelSelected].classList.add("channelMenuSelected")
-            setTimeout(() => {
-                channelMenuList[firstChannelSelected].classList.remove("channelMenuSelected")
-            }, 200)
-            channelMenuList[firstChannelSelected].classList.add("channelMenuLookAt")
-            setTimeout(() => {
-                channelList[firstChannelSelected].classList.add("index2")
-                buttonIndex = firstChannelSelected
-            }, 320)
-            selectedChannel = firstChannelSelected
-            screenBackG.classList.remove("index1")
-            screenBackG.classList.remove("index3")
+        case 2: centralCross()
             break;
-        case 3:
-            if (firstChannelSelected === 9) {
-                firstChannelSelected = 0;
-            }
-            channelMenuList[firstChannelSelected + 1].classList.add("channelMenuLookAt");
-            firstChannelSelected = firstChannelSelected + 1;
+        case 3: arrowRight()
             break;
-        case 4:
-            if (firstChannelSelected >= 0 && firstChannelSelected <= 4) {
-                channelMenuList[firstChannelSelected + 5].classList.add("channelMenuLookAt");
-                firstChannelSelected = firstChannelSelected + 5;
-            }
+        case 4: arrowDown()
+
             break;
     }
 }
 
 // FUNCION PARA AÑADIR Y QUITAR A LOS CANALES DE LA CLASE INDEX2 (z-index: 2)
 function buttonClick(e) {
+    if (firstChannelSelected !== -1) {
+        selectedChannel = firstChannelSelected
+    }
     const buttonIndex = buttonsList.indexOf(e.target)
     screenBackG.classList.remove("index1")
     screenBackG.classList.remove("index3")
@@ -231,6 +279,9 @@ function buttonClick(e) {
     channelList[buttonIndex].classList.add("index2")
     buttonIndexLast = buttonIndex
     selectedChannel = channelList.indexOf(channelList[buttonIndex])
+    console.log(firstChannelSelected)
+    console.log(selectedChannel)
+    firstChannelSelected = -1
 }
 
 
@@ -343,6 +394,14 @@ function toggleChannelClick() {
 }
 
 
+function originalTv() {
+    screen.className = originalState
+    if (buttonIndexLast !== -1 && buttonIndexLast < channelList.length) {
+        channelList[buttonIndexLast].className = originalChannelState[buttonIndexLast]
+    }
+
+}
+
 /////////////////////////////////////////////////////////////////////// EVENTOS
 
 
@@ -350,6 +409,7 @@ function toggleChannelClick() {
 IO.addEventListener("click", (e) => {
     screenOnOff()
     update()
+    dateTime()
     toggleChannelClick()
     toggleTopButtonClick()
     toggleChanVolButtonClick()
