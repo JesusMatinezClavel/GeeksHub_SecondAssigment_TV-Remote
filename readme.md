@@ -51,9 +51,9 @@ He añadido algo de profundidad a ambos elementos jugando con los bordes, las so
 
 Para dar las funcionalidades a los botones he basado todas las funciones a partir de la función para encender la televisión, cambiando el estado de la variable on a true y permitiendo así que funcionen los if/else asociados a los botones, además de tener en cuenta que al volver a pulsar el botón de encendido de la TV debería volver todo a su posición original.
 
-![función de encendido de TV](./img/image10.png)
 
 El principal problema que he tenido, sobretodo los primeros días, ha sido el hecho de que las funciones de los botones no me estaban respetando el if/else en el que los había metido, pero tras investigar y hacer varias pruebas comprendí que era mejor declarar las funciones externamente y luego incluirlas en la función de encendido/apagado de la TV, ya que así respetaba el estado de la variable on.
 
+![función de encendido de TV](./img/image10.png)
 
 
