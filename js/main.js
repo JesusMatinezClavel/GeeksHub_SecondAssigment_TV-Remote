@@ -184,12 +184,8 @@ function buttonClickChannelVol(e) {
         case 1: volumeRemove()
             break;
         case 2: channelAdd()
-            console.log(firstChannelSelected)
-            console.log(selectedChannel)
             break;
         case 3: channelRemove()
-            console.log(firstChannelSelected)
-            console.log(selectedChannel)
             break;
     }
 }
@@ -258,7 +254,6 @@ function crossClick(e) {
         case 3: arrowRight()
             break;
         case 4: arrowDown()
-
             break;
     }
 }
@@ -406,6 +401,7 @@ function originalTv() {
 
 
 ///////////// EVENTO PARA ENCENDER LA TV Y POSIBILITAR EL RESTO DE FUNCIONES
+
 IO.addEventListener("click", (e) => {
     screenOnOff()
     update()
