@@ -70,7 +70,6 @@ body {
 }
 
 .screenOpacity {
-    transition: 1s;
     opacity: 0;
 }
 
@@ -577,7 +576,6 @@ body {
 
 .off {
     opacity: 1;
-    transition: 1s;
     z-index: 5;
 }
 

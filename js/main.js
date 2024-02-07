@@ -390,11 +390,13 @@ function toggleChannelClick() {
 
 
 function originalTv() {
-    screen.className = originalState
-    if (buttonIndexLast !== -1 && buttonIndexLast < channelList.length) {
-        channelList[buttonIndexLast].className = originalChannelState[buttonIndexLast]
+    if (!on) {
+        firstChannelSelected = -1
+        selectedChannel = -1
+        channelList.forEach(channel => channel.classList.remove("index2"))
+        channel0.classList.remove("index2");
+        screenBackG.classList.add("index1")
     }
-
 }
 
 /////////////////////////////////////////////////////////////////////// EVENTOS
@@ -410,4 +412,5 @@ IO.addEventListener("click", (e) => {
     toggleTopButtonClick()
     toggleChanVolButtonClick()
     togglecrossButtonClick()
+    originalTv()
 })
